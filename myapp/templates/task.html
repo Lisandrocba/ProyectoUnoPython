@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+<body>
+    <h2>Lista de tareas: </h2>
+    {% for task in tasks %}
+        {% if task.done == False %}  <div class="cart color">     {% else %}   <div class="cart colorHecho"> {% endif %}
+       
+            <h4> {% if task.done == False %} 🕐 {{task.title}} {% else %} ✅ {{task.title}} {% endif %}</h4>
+            <p>{{task.description}}</p>
+            <p>Project: {{task.project}}</p>
+            <div class="buttons">
+                <button class="button">Eliminar</button>
+                <button class="buttonOk">Hecho</button>
+            </div>
+        </div>
+        
+    {% endfor %}
+
+    <style>
+        h2{
+            color: #fafafa;
+        }
+        body{
+            background-color: #202020;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        .color{
+            background-color: #fafafa;
+        }
+        .colorHecho{
+            background: #b9eec3;
+        }
+        .cart{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+            border-radius: 15px;
+            box-shadow: 0 2px 4px #fafafa;
+            width: 30vw;
+            margin: 30px;
+            transition: all 0.3s;
+        }
+        .cart:hover{
+            transform: scale(1.05);
+        }
+        .button{
+            background-color: rgb(230, 76, 76);
+            display: block;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            padding: 10px 40px;
+            color: #fafafa;
+        }
+        .button:hover{
+            background-color: lightcoral;
+            cursor: pointer;
+        }
+        .buttonOk{
+            background-color: rgb(87, 236, 87);
+            display: block;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            padding: 10px 40px;
+            color: #302f2f;
+        }
+        .buttonOk:hover{
+            background-color: lightgreen;
+            cursor: pointer;
+        }
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 25vw
+        }
+    </style>
+</body>
+</html>
