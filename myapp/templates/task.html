@@ -6,21 +6,29 @@
     <title>Tasks</title>
 </head>
 <body>
-    <h2>Lista de tareas: </h2>
-    {% for task in tasks %}
-        {% if task.done == False %}  <div class="cart color">     {% else %}   <div class="cart colorHecho"> {% endif %}
-       
-            <h4> {% if task.done == False %} 🕐 {{task.title}} {% else %} ✅ {{task.title}} {% endif %}</h4>
-            <p>{{task.description}}</p>
-            <p>Project: {{task.project}}</p>
-            <div class="buttons">
-                <button class="button">Eliminar</button>
-                <button class="buttonOk">Hecho</button>
-            </div>
-        </div>
-        
-    {% endfor %}
 
+    {% extends 'layouts/navBar.html' %}
+
+    {% block content %}
+    <div class="contenedorTasks">
+        <h2>Lista de tareas: </h2>
+        <div class="contenedorTareas">
+            {% for task in tasks %}
+            {% if task.done == False %}  <div class="cart color">     {% else %}   <div class="cart colorHecho"> {% endif %}
+           
+                <h4> {% if task.done == False %} 🕐 {{task.title}} {% else %} ✅ {{task.title}} {% endif %}</h4>
+                <p>{{task.description}}</p>
+                <p>Project: {{task.project}}</p>
+                <div class="buttons">
+                    <button class="button">Eliminar</button>
+                    <button class="buttonOk">Hecho</button>
+                </div>
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+    
     <style>
         h2{
             color: #fafafa;
@@ -29,9 +37,24 @@
             background-color: #202020;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
-        
+        .contenedorTasks{
+            background-color: #202020;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
         .color{
             background-color: #fafafa;
+        }
+        .contenedorTareas{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
         }
         .colorHecho{
             background: #b9eec3;
@@ -41,10 +64,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-           
+            padding: auto 5px;
             border-radius: 15px;
             box-shadow: 0 2px 4px #fafafa;
-            width: 30vw;
+            min-width: 420px;
+            max-width: 450px;
+            height: auto;
             margin: 30px;
             transition: all 0.3s;
         }
@@ -85,5 +110,8 @@
             width: 25vw
         }
     </style>
+
+    {% endblock %}
+
 </body>
 </html>

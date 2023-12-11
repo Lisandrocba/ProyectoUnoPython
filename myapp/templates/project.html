@@ -6,11 +6,63 @@
     <title>Projects</title>
 </head>
 <body>
-    <h2>Lista de proyectos: </h2>
-    {% for project in projects %}
-        <div>
-            <h4>{{project.name}}</h4>
+    {% extends 'layouts/navBar.html' %}
+
+    {% block content %}
+    <div class="body">
+        <h2>Lista de proyectos: </h2>
+        <div class="contentCart">
+            {% for project in projects %}
+                <div>
+                    <h4>{{project.name}}</h4>
+                    <button>Eliminar</button>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    </div>
+    <style>
+        .body{
+            background-color: #202020;
+            color: #fafafa;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .contentCart{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .contentCart div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fafafa;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 5px 10px;
+            box-shadow: 0 2px 4px #fafafa;
+            color: #202020;
+            width: 25vw
+        }
+        button{
+            background-color: rgb(230, 76, 76);
+            padding: 10px 15px;
+            margin: 5px auto;
+            border-radius: 5px;
+            color: #fafafa;
+        }
+        button:hover{
+            background-color: lightcoral;
+            cursor: pointer;
+        }
+    </style>
+    {% endblock %}
 </body>
 </html>

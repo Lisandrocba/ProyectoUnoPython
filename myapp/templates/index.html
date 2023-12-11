@@ -6,6 +6,11 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Welcome to the django</h1>
+    {% extends 'layouts/navBar.html' %}
+
+    {% block content %}
+        <h1>Welcome to the django</h1>
+
+    {% endblock %}
 </body>
 </html>
