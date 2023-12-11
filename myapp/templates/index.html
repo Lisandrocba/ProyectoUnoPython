@@ -7,10 +7,46 @@
 </head>
 <body>
     {% extends 'layouts/navBar.html' %}
-
+    {% load static %}
     {% block content %}
-        <h1>Welcome to the django</h1>
-
+        <div class="contenedorIndex">
+            <div class="contenedorTexto">
+                <h1>Welcome to the django</h1>
+                <p>Proyecto Creado desde 0 con django y python</p>
+                <p>El proyecto permite crear una lista de proyectos y una lista de tareas para administrar rutinas</p>
+            </div>
+            <img src="{% static 'photo.png' %}" alt="" width="40">
+        </div>
+        <style>
+            .contenedorIndex{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: start;
+                padding-top: 15px;
+                background-color: #202020;
+                color: #fafafa;
+                height: 100vh;
+            }
+            .contenedorIndex img{
+                width: 40vw;
+            }
+            .contenedorTexto{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                margin: 30px;
+                margin-top: 50px;
+            }
+            .contenedorTexto h1{
+                font-size: 2rem;
+            }
+            .contenedorTexto{
+                font-family: 1.3rem;
+            }
+        </style>
     {% endblock %}
 </body>
 </html>
